@@ -30,5 +30,13 @@ namespace DrasticBomb.Tests
             Assert.IsNotNull(response);
             Assert.IsTrue(response.StatusCode == Models.StatusCode.OK);
         }
+
+        [TestMethod]
+        public async Task CanGetBasicVideoShowsResponse()
+        {
+            var response = await this.manager.GetVideoShowsAsync();
+            Assert.IsNotNull(response);
+            Assert.IsTrue(response.StatusCode == Models.StatusCode.OK);
+        }
     }
 }

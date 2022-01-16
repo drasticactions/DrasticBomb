@@ -10,8 +10,9 @@ namespace DrasticBomb.Managers
     {
         private GiantBombClient client;
 
-        private string videosEndpoint = "videos/";
-        private string videoEndpoint = "video/";
+        private string videosEndpoint = "api/videos/";
+        private string videoEndpoint = "api/video/";
+        private string videoShowEndpoint = "api/video_shows";
 
         public VideoManager(GiantBombClient client)
         {
@@ -26,6 +27,16 @@ namespace DrasticBomb.Managers
             }
 
             return await this.client.GetAsync<VideosResponse>(videosEndpoint, filters.ToNameValueCollection(), cancellationToken);
+        }
+
+        public async Task<VideoShowsResponse> GetVideoShowsAsync(VideosFilters? filters = default, CancellationToken cancellationToken = default)
+        {
+            if (filters == null)
+            {
+                filters = new VideosFilters();
+            }
+
+            return await this.client.GetAsync<VideoShowsResponse>(videoShowEndpoint, filters.ToNameValueCollection(), cancellationToken);
         }
     }
 }

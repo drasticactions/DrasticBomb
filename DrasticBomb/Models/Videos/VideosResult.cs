@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DrasticBomb.Models
+namespace DrasticBomb.Models.Videos
 {
     public class VideosResult
     {
@@ -32,7 +32,7 @@ namespace DrasticBomb.Models
         public bool Premium { get; set; }
 
         [JsonPropertyName("publish_date")]
-        public DateTimeOffset PublishDate { get; set; }
+        public string? PublishDate { get; set; }
 
         [JsonPropertyName("site_detail_url")]
         public Uri? SiteDetailUrl { get; set; }

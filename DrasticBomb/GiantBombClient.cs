@@ -12,22 +12,26 @@ namespace DrasticBomb
 {
     public class GiantBombClient
     {
-        private string baseUrl = "https://www.giantbomb.com/api/";
+        private string baseUrl = "https://www.giantbomb.com/";
         private HttpClient client;
         private string authToken;
+        private string appName;
 
-        public GiantBombClient(string authToken, HttpClient? client = null)
+        public GiantBombClient(string authToken, HttpClient? client = null, string appName = "DrasticBomb")
         {
             if (string.IsNullOrEmpty(authToken))
             {
                 throw new ArgumentNullException(nameof(authToken));
             }
 
+            this.appName = appName;
             this.authToken = authToken;
             this.client = client ?? new HttpClient();
             var productValue = new ProductInfoHeaderValue("DrasticBomb", "1.0");
             this.client.DefaultRequestHeaders.UserAgent.Add(productValue);
         }
+
+        public string AppName => this.appName;
 
         public async Task<T> GetAsync<T>(string endpoint, NameValueCollection? queryString = null, CancellationToken cancellationToken = default)
         {

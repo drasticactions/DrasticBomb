@@ -1,22 +1,19 @@
-﻿// <copyright file="VideosResponse.cs" company="Drastic Actions">
+﻿// <copyright file="VideoShowsResponse.cs" company="Drastic Actions">
 // Copyright (c) Drastic Actions. All rights reserved.
 // </copyright>
 
-using DrasticBomb.Models.Videos;
+using DrasticBomb.Models.VideoShows;
 using System.Text.Json.Serialization;
 
 namespace DrasticBomb.Models
 {
-    /// <summary>
-    /// Video Response.
-    /// </summary>
-    public class VideosResponse : BaseResposne
+    public class VideoShowsResponse : BaseResposne
     {
         /// <summary>
         /// Gets or sets the Videos Results.
         /// <see cref="VideosResult"/>.
         /// </summary>
         [JsonPropertyName("results")]
-        public VideosResult[]? Results { get; set; }
+        public VideoShowsResult[]? Results { get; set; }
     }
 }

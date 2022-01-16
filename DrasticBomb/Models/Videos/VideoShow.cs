@@ -4,7 +4,7 @@
 
 using System.Text.Json.Serialization;
 
-namespace DrasticBomb.Models
+namespace DrasticBomb.Models.Videos
 {
     public class VideoShow
     {
