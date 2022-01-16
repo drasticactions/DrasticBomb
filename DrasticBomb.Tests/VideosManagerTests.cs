@@ -31,6 +31,15 @@ namespace DrasticBomb.Tests
             Assert.IsTrue(response.StatusCode == Models.StatusCode.OK);
         }
 
+        [DataRow(28)]
+        [DataTestMethod]
+        public async Task CanGetFilterVideoResponse(int id)
+        {
+            var response = await this.manager.GetVideosAsync(new Models.VideosFilters() { VideoShowId = id });
+            Assert.IsNotNull(response);
+            Assert.IsTrue(response.StatusCode == Models.StatusCode.OK);
+        }
+
         [TestMethod]
         public async Task CanGetBasicVideoShowsResponse()
         {

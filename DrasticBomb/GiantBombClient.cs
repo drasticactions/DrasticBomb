@@ -33,6 +33,8 @@ namespace DrasticBomb
 
         public string AppName => this.appName;
 
+        public string AuthToken => this.authToken;
+
         public async Task<T> GetAsync<T>(string endpoint, NameValueCollection? queryString = null, CancellationToken cancellationToken = default)
         {
             if (queryString is null)
