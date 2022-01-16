@@ -19,7 +19,7 @@ namespace DrasticBomb.Tests
         /// </summary>
         public VideosManagerTests()
         {
-            this.client = new GiantBombClient("test");
+            this.client = new GiantBombClient(TestApiTokens.API);
             this.manager = new VideoManager(this.client);
         }
 
