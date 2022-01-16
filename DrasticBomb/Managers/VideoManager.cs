@@ -19,6 +19,11 @@ namespace DrasticBomb.Managers
             this.client = client;
         }
 
+        public async Task<VideoShowResponse> GetVideoAsync(int id, CancellationToken cancellationToken = default)
+        {
+            return await this.client.GetAsync<VideoShowResponse>($"{videoEndpoint}{id}", null, cancellationToken);
+        }
+
         public async Task<VideosResponse> GetVideosAsync(VideosFilters? filters = default, CancellationToken cancellationToken = default)
         {
             if (filters == null)
